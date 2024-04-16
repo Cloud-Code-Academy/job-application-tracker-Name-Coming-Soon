@@ -5,7 +5,7 @@
     <description>Person conducting the interview.</description>
     <externalId>false</externalId>
     <label>Interviewer</label>
-    <referenceTo>Job_Application__c</referenceTo>
+    <referenceTo>Contact</referenceTo>
     <relationshipLabel>Job Interviews</relationshipLabel>
     <relationshipName>Job_Interviews</relationshipName>
     <required>false</required>
