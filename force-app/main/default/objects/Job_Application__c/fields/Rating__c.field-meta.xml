@@ -14,7 +14,7 @@
             <value>
                 <fullName>1</fullName>
                 <default>false</default>
-                <label>1</label>
+                <label>1 - Better than what I have</label>
             </value>
             <value>
                 <fullName>2</fullName>
@@ -24,7 +24,7 @@
             <value>
                 <fullName>3</fullName>
                 <default>false</default>
-                <label>3</label>
+                <label>3 - Might be ok</label>
             </value>
             <value>
                 <fullName>4</fullName>
@@ -34,7 +34,7 @@
             <value>
                 <fullName>5</fullName>
                 <default>false</default>
-                <label>5</label>
+                <label>5 - Awesome Opportunity</label>
             </value>
         </valueSetDefinition>
     </valueSet>
