@@ -1,0 +1,76 @@
+<template>
+  <div class="app">
+    <div class="box">
+      <h1>Take Home Pay Calculator</h1>
+      <form>
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col">
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-income">Income</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-income" min="0" required class="slds-input" onchange={handleIncomeChange} />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-salarydeductions">Salary Deductions</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-salarydeductions" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-federaltax">Federal Tax</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-federaltax" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-medicare">Medicare</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-medicare" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-socialsecurity">Social Security</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-socialsecurity" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+          </div>
+          <div class="slds-col">
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-taxableincome">Taxable Income</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-taxableincome" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-takehomepay">Take Home Pay</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-takehomepay" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-semestralpay">Semestral Pay</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-semestralpay" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-monthlypay">Monthly Pay</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-monthlypay" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-biweeklypay">Biweekly Pay</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-biweeklypay" min="0" required class="slds-input" disabled />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="slds-button slds-button_neutral slds-button_stretch custom-button slds-var-m-bottom_large" onclick={preventDefaultAndHandleCalculate}>Calculate</button>
+      </form>
+    </div>
+  </div>
+</template>

@@ -20,7 +20,7 @@
                 <field>Interview_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Job_Application__c</field>
             </layoutItems>
             <layoutItems>
@@ -240,7 +240,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hak000003EXsL</masterLabel>
+        <masterLabel>00hbm000001JoRH</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
