@@ -4,9 +4,8 @@
     <columns>NAME</columns>
     <columns>Title__c</columns>
     <columns>Salary__c</columns>
-    <columns>Company__c</columns>
-    <columns>Location_Condition__c</columns>
     <columns>CREATED_DATE</columns>
+    <columns>Location__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>
