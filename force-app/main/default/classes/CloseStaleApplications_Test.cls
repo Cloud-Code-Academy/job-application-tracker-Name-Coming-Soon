@@ -1,25 +1,32 @@
 @isTest
 public with sharing class CloseStaleApplications_Test {
+
+    //     // Schedule the CloseStaleApplications_Schedulable class for execution
+    //     Test.startTest();
+    //     CloseStaleApplications_Schedulable closeStaleApplications = new CloseStaleApplications_Schedulable();
+    //     String year = String.valueOf(Date.today().year() + 1);
+    //     String cron = '0 0 0 15 3 ? ' + year; // Arbitrary cron expression for once-off execution in the future
+    //     //Seconds Minutes Hours Day_of_month Month Day_of_week Optional_year
+    //     //'?' Specifies no specific value. This option is only available for Day_of_month and Day_of_week. It’s typically used when specifying a value for one and not the other.
+    //     System.debug('cron: ' + cron);
+    //     System.schedule('CloseStaleApplsTest', cron, closeStaleApplications);
+    //     closeStaleApplications.execute(null);
+    //     Test.stopTest();
+
+        
+
     @IsTest
-    public static void testCloseStaleApplications_Schedule() {
+    public static void testCloseStaleApplications_Batch() {
         
          // Call the TestDataFactory class to create test data
         List<Job_Application__c> testJobApplications = TestDataFactory.createTestData();
         Job_Application__c testJobApplication = testJobApplications[0];
 
-        // Schedule the CloseStaleApplications_Schedulable class for execution
+        // Call the batch class
         Test.startTest();
-        CloseStaleApplications_Schedulable closeStaleApplications = new CloseStaleApplications_Schedulable();
-        String year = String.valueOf(Date.today().year() + 1);
-        String cron = '0 0 0 15 3 ? ' + year; // Arbitrary cron expression for once-off execution in the future
-        //Seconds Minutes Hours Day_of_month Month Day_of_week Optional_year
-        //'?' Specifies no specific value. This option is only available for Day_of_month and Day_of_week. It’s typically used when specifying a value for one and not the other.
-        System.debug('cron: ' + cron);
-        System.schedule('CloseStaleApplsTest', cron, closeStaleApplications);
-        closeStaleApplications.execute(null);
+        CloseStaleApplications_Batchable batchJob = new CloseStaleApplications_Batchable();
+        Id batchId = Database.executeBatch(batchJob);
         Test.stopTest();
-
-        
 
         // Query the updated job applications
         List<Job_Application__c> updatedJobApplications = [SELECT Id, Status__c 
@@ -33,4 +40,4 @@ public with sharing class CloseStaleApplications_Test {
             System.assertEquals('Closed', jobApp.Status__c, 'Job Application Status__c field was not updated correctly.');
         }
     }
-}
+}    

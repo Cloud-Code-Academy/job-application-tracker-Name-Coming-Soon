@@ -29,7 +29,7 @@ public class TestDataFactory {
                             Applicant__c = [SELECT Id FROM User WHERE IsActive = true LIMIT 1].Id,
                             Primary_Contact__c = testContact1.Id,
                             Status__c = 'Saved',
-                            Follow_up_date__c = Date.today().addDays(30)
+                            Follow_up_date__c = Date.today().addDays(-45)
         );
         
         List<Job_Application__c> jobApplications = new List<Job_Application__c>{testJobApplication};
