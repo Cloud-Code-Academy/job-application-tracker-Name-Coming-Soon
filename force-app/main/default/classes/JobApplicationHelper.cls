@@ -6,7 +6,7 @@ public with sharing class JobApplicationHelper {
     public static Task createTaskForStatus(String status, Job_Application__c jobApplication) {
         Task newTask = new Task();
         newTask.ActivityDate = System.today().addDays(2);
-        newTask.Company__c = jobApplication.Company_Name__c;
+        //newTask.Company__c = jobApplication.Company_Name__c;
         newTask.Job_Application__c = jobApplication.Id;
         newTask.Job__c = jobApplication.Job__c;
         newTask.OwnerId = jobApplication.Applicant__c;
