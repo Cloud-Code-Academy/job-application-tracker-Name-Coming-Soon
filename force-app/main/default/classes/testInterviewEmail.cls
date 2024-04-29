@@ -1,29 +1,61 @@
-/**
- * This class contains unit tests for validating the behavior of Apex classes
- * and triggers.
- *
- * Unit tests are class methods that verify whether a particular piece
- * of code is working properly. Unit test methods take no arguments,
- * commit no data to the database, and are flagged with the testMethod
- * keyword in the method definition.
- *
- * All test methods in an org are executed whenever Apex code is deployed
- * to a production org to confirm correctness, ensure code
- * coverage, and prevent regressions. All Apex classes are
- * required to have at least 75% code coverage in order to be deployed
- * to a production org. In addition, all triggers must have some code coverage.
- * 
- * The @isTest class annotation indicates this class only contains test
- * methods. Classes defined with the @isTest annotation do not count against
- * the org size limit for all Apex scripts.
- *
- * See the Apex Language Reference for more information about Testing and Code Coverage.
- */
-@isTest
-private class testInterviewEmail {
+/*
+ * Test that :
+ *  - An interview with a NULL/Invalid time doesn't get scheduled. The expected behaciour is that
+ *   the trigger for insert will throw an exception
+ *  - A test interview with a valid time gets scheduled. 
+ *   This is done by checking if there is a cron expression with the same time as ours scheduled Email Job
+ *   in the list of Cron Triggers
+*/
 
+@isTest
+public with sharing class testInterviewEmail {
     @isTest
-    static void myUnitTest() {
-        // TO DO: implement unit test
+    static void interviewEmailTestvalidDate() {
+        List <User> users = new List <User> ();
+        users = [SELECT ID, Email, Name FROM User];
+		
+        Job__c job = new Job__c(Title__c = 'Salesforce Developer',
+                                Company_Name__c = 'Cloudcode');
+        insert job;
+        Job_Application__c jobApp = new Job_Application__c(Job__c = job.id, Name='testClassJob1',
+                                                           Applicant__c = users[0].id);
+        insert jobApp;
+        Time intTime = DateTime.now().time().addMinutes(1);
+        Date intDate = Date.today().addDays(1);
+        Job_Interview__c jobInt = new Job_Interview__c(Interview_Time__c = intTime,
+                                                       Interview_Date__c = intDate,
+                                                       Job_Application__c = jobApp.id);
+		
+        Job_Interview__c jobInt2 = new Job_Interview__c(Interview_Time__c = NULL,
+                                                       Interview_Date__c = intDate,
+                                                       Job_Application__c = jobApp.id);
+		//Check that a NULL time throws exception
+        Test.startTest();
+		//Assert
+        try {
+    		insert jobInt2;
+		} catch (DmlException e)  {
+            Assert.isTrue(e.getMessage().contains('Date or time cant be null or invalid'), 'Unexpected exception on insert');
+		}
+        insert jobInt;
+        Test.stopTest();
+
+        String minute = intTime.minute().toString(); //can't be typcast
+        String hour = intTime.hour().toString();
+        String day = (intDate.day() - 1).toString();
+        String schDayBefore = '0' + ' ' + minute + ' ' + hour + ' '  + day + ' '  + intDate.month() + ' '  + '?' + ' ' + intDate.year();
+
+        List<CronTrigger> ct = [SELECT Id, CronExpression, TimesTriggered, 
+        NextFireTime
+        FROM CronTrigger];
+
+       // check that the apex job for sending email was scheduled
+       Integer foundCron;
+	   for (CronTrigger ctSch : ct) {
+           if (schDayBefore.equals(ctSch.CronExpression)) {
+               foundCron = 1;
+           }
+	   }
+       Assert.areEqual(1, foundCron, 'cron job for email not scheduled');
     }
 }
