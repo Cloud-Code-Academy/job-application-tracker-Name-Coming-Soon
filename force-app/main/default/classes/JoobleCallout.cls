@@ -1,5 +1,6 @@
-public with sharing class DummyJsonCalloutGen implements HttpCalloutMock {
-	public HTTPResponse respond(HTTPRequest req) {
+@isTest
+global class JoobleCallout implements HttpCalloutMock {
+	global HTTPResponse respond(HTTPRequest req) {
 		HttpResponse res = new HttpResponse();
 		res.setHeader('Content-Type', 'application/json');
 		if (req.getMethod() == 'GET') {
@@ -11,5 +12,5 @@ public with sharing class DummyJsonCalloutGen implements HttpCalloutMock {
 		}
 		res.setStatusCode(200);
 		return res;
-	}
+	} 
 }

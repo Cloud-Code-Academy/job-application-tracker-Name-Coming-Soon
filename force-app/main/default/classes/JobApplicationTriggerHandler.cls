@@ -33,7 +33,6 @@ public with sharing class JobApplicationTriggerHandler {
             Date today = Date.today();
             Date followUpDate = today.addDays(30);
             jobAppl.Follow_up_date__c = followUpDate;
-            System.debug('Follow_up_date__c ' + followUpDate);
             } catch (Exception e) {
                 System.debug('Error updating Follow_up_date__c: ' + e.getMessage());
             }	

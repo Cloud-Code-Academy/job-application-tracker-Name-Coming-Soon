@@ -1,0 +1,36 @@
+:host() {
+  --black: #0b0d21;
+  --light-white: #fafafa;
+  --light-blue: #4f7df9;
+  --light-pink: #e91e63;
+  --dull-black: #1d1e33;
+  --size-16: 16px;
+}
+
+.box {
+  max-width: 420px;
+  text-align: center;
+  margin: auto;
+  background: var(--black);
+  color: var(--light-white);
+  padding: var(--size-16);
+  border-radius: 38px;
+}
+
+h1 {
+  font-size: 30px;
+  padding: 20px 0;
+  font-weight: bold;
+}
+
+label {
+  font-size: 12px;
+  color: var(--light-white);
+}
+
+input {
+  color: var(--dull-black);
+  padding: 8px;
+  font-size: var(--size-16);
+}
+

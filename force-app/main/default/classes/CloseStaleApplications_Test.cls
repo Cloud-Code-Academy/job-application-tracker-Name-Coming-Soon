@@ -13,8 +13,6 @@ public with sharing class CloseStaleApplications_Test {
     //     closeStaleApplications.execute(null);
     //     Test.stopTest();
 
-        
-
     @IsTest
     public static void testCloseStaleApplications_Batch() {
         
