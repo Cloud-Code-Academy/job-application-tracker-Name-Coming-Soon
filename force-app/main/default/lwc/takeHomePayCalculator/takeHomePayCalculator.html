@@ -1,0 +1,84 @@
+<template>
+    <div class="box">
+      <h1>Take Home Pay Calculator</h1>
+      <form onsubmit={handleSubmit}>
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col">
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-income">Income</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-income" min="0" name="income" 
+                required class="slds-input" value={income} onchange={handleIncomeChange} />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-salaryDeductions">Salary Deductions</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-salaryDeductions" min="0" name="salaryDeductions" 
+                required class="slds-input" value={salaryDeductions} disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-federalWithholding">Federal Withholding</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-federalWithholding" min="0" name="federalWithholding" 
+                required class="slds-input" value={federalWithholding} disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-medicareWithholding">Medicare Withholding</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-medicareWithholding" min="0" name="medicareWithholding" 
+                required class="slds-input" value={medicareWithholding} disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-socialSecurityWithholding">Social Security Withholding</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-socialSecurityWithholding" min="0" name="socialSecurityWithholding" 
+                required class="slds-input" value={socialSecurityWithholding} disabled />
+              </div>
+            </div>
+          </div>
+          <div class="slds-col">
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-taxableIncome">Taxable Income</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-taxableIncome" min="0" name="taxableIncome" 
+                required class="slds-input" value={taxableIncome} disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-takeHomePay">Take Home Pay</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-takeHomePay" min="0" name="takeHomePay" 
+                required class="slds-input" value={takeHomePay} disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-semiAnnualPay">Semi Annual Pay</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-semiAnnualPay" min="0" name="semiAnnualPay" 
+                required class="slds-input" value={semiAnnualPay} disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-monthlypay">Monthly Pay</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-monthlyPay" min="0" name="monthlyPay" 
+                required class="slds-input" value={monthlyPay} disabled />
+              </div>
+            </div>
+            <div class="slds-form-element slds-var-m-bottom_medium">
+              <label class="slds-form-element__label slds-text-title_bold" for="text-input-biweeklypay">Biweekly Pay</label>
+              <div class="slds-form-element__control">
+                <input type="number" id="text-input-biWeeklyPay" min="0" name="biWeeklyPay" 
+                required class="slds-input" value={biWeeklyPay} disabled />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="slds-button slds-button_neutral slds-button_stretch custom-button slds-var-m-bottom_large" type="button" onclick={handleCalculateClick}>Calculate</button>
+      </form>
+    </div>
+</template>

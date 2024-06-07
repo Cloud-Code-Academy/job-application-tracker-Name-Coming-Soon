@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Dear {{{Job_Application__c.Primary_Contact__c}}},</p>
+
+<p>I wanted to express my gratitude for the opportunity to interview for the {{{Job_Application__c.00Nak000001XsKx}}} role at {{{Job_Application__c.Company_Name__c}}}. It was a pleasure discussing the role and learning more about your team.</p>
+
+<p>Thank you for considering my application. I look forward to the possibility of contributing to your organization.</p>
+
+<p>Best regards,<br />
+{{{Job_Application__c.Applicant__c}}}</p>
+</body>
+</html>

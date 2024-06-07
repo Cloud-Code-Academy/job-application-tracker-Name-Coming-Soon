@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html style="overflow-y: hidden;">
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Hello {{{Job_Application__c.Primary_Contact__c}}},</p>
+
+<p>I hope this email finds you well. I wanted to follow up on our recent discussion regarding the {{{Job_Application__c.00Nak000001XsKx}}} role at {{{Job_Application__c.Company_Name__c}}}.</p>
+
+<p>Please feel free to reach out if you need any further information or if there are any updates regarding the next steps in the hiring process. I am looking forward to the possibility of working together.</p>
+
+<p>Thank you once again for considering my application.</p>
+
+<p>Warm regards,<br />
+{{{Job_Application__c.Applicant__c}}}</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

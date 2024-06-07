@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Job_Application__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Application Process</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Congratulations!!!&lt;/p&gt;</info>
+        <picklistValueName>Accepted</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Application_Date__c</fieldNames>
+        <fieldNames>Primary_Contact__c</fieldNames>
+        <fieldNames>Follow_up_date__c</fieldNames>
+        <fieldNames>Notes__c</fieldNames>
+        <info>&lt;p&gt;Attempt a follow-up email or message. &lt;/p&gt;</info>
+        <picklistValueName>Applied</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Description__c</fieldNames>
+        <fieldNames>Application_Date__c</fieldNames>
+        <info>&lt;p&gt;Confirm your resume contains keywords from the listing.&lt;/p&gt;</info>
+        <picklistValueName>Applying</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Application_Date__c</fieldNames>
+        <info>&lt;p&gt;Didn&amp;#39;t work out this time. One step closer to the right thing. &lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Company_Name__c</fieldNames>
+        <fieldNames>Primary_Contact__c</fieldNames>
+        <fieldNames>Description__c</fieldNames>
+        <info>&lt;p&gt;Research the company and contact you will be interviewing with. &lt;/p&gt;</info>
+        <picklistValueName>Interviewing</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Salary__c</fieldNames>
+        <info>&lt;p&gt;Review the benefits, bonus structure, and PTO offerings as well as the annual salary. &lt;/p&gt;&lt;p&gt;What will the work/life balance be like?&lt;/p&gt;&lt;p&gt;Will driving to the site require time and resources?&lt;/p&gt;</info>
+        <picklistValueName>Negotiating</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Salary__c</fieldNames>
+        <fieldNames>Location__c</fieldNames>
+        <fieldNames>Rating__c</fieldNames>
+        <info>&lt;p&gt;Review the information and confirm this is a role you would like to apply for.&lt;/p&gt;</info>
+        <picklistValueName>Saved</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>
