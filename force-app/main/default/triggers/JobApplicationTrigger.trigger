@@ -3,16 +3,14 @@ trigger JobApplicationTrigger on Job_Application__c (before insert, after insert
                                                     before delete) {
     switch on trigger.operationType {
         when BEFORE_INSERT {
-            // Do something
-            JobApplicationTriggerHandler.createAppFollowUpDate(trigger.new);
+            JobApplicationTriggerHandler.createAppFollowUpDate(Trigger.new);
+            JobApplicationTriggerHandler.createTaskFromStatus(Trigger.new, null);
         }
         when AFTER_INSERT {
-            // Do something
-            JobApplicationTriggerHandler.createTaskFromStatus(trigger.new);                        
+            // Do something                       
         }
         when BEFORE_UPDATE {
-            // Do something 
-            JobApplicationTriggerHandler.createTaskFromStatus(trigger.new);             
+            JobApplicationTriggerHandler.createTaskFromStatus(Trigger.new, Trigger.oldMap);             
         }
         when AFTER_UPDATE {
             // Do something 

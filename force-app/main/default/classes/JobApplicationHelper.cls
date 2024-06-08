@@ -21,7 +21,6 @@ public with sharing class JobApplicationHelper {
             }
             when 'Applying' {
                 newTask.Subject = 'Apply for the Job';
-                newTask.Subject = 'Apply for the Job';
                 newTask.Description = 'Find and research someone who works at the company and add them as a contact.\nSet up an informational interview to learn more about the role/company.\nIdentify potential referrals to help get your application on the top of the pile.\nCustomize your work achievements using the job description keywords.\nSubmit your application on the company website if possible.';
                 newTask.Priority = 'Normal';
             }

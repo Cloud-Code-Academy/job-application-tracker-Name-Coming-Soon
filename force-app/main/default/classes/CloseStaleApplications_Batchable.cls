@@ -37,7 +37,7 @@ public with sharing class CloseStaleApplications_Batchable implements Database.B
                 t.Description = description;
             }
             System.debug('tasksToUpdate ' + tasksToUpdate);
-            update tasksToUpdate; ///DML that allows you process errors individually
+            update tasksToUpdate; 
             
         }catch(Exception e){
             System.Debug('Error: '+ e.getMessage() + 'Line Number: '+ e.getLineNumber()); 
