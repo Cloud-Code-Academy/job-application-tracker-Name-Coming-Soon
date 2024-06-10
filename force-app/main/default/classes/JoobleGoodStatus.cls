@@ -1,5 +1,7 @@
-@isTest
-global class JoobleCallout implements HttpCalloutMock {
+/**
+ * Mock Callout that returns a valid body and good status
+ */
+global class JoobleGoodStatus implements HttpCalloutMock {
 	global HTTPResponse respond(HTTPRequest req) {
 		HttpResponse res = new HttpResponse();
 		res.setHeader('Content-Type', 'application/json');

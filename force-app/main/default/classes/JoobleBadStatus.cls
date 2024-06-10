@@ -1,4 +1,6 @@
-@isTest
+/**
+ * Mock callout that returns a valid body but error code 500
+ */
 global class JoobleBadStatus implements HttpCalloutMock {
 	global HTTPResponse respond(HTTPRequest req) {
 		HttpResponse res = new HttpResponse();
