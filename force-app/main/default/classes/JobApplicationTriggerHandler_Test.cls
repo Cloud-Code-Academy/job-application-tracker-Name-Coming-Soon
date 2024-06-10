@@ -10,13 +10,14 @@ public with sharing class JobApplicationTriggerHandler_Test {
 
         // Test execution
         Test.startTest();
-        JobApplicationTriggerHandler.createTaskFromStatus(new List<Job_Application__c>{testJobApplication});
+        JobApplicationTriggerHandler.createTaskFromStatus(new List<Job_Application__c>{testJobApplication}, null);
         Test.stopTest();
 
         // Test verification
         List<Task> tasks = [SELECT Id FROM Task WHERE Job_Application__c = :testJobApplication.Id];
+        System.debug('The testJobApplication.Id ' + testJobApplication.Id);
         System.debug('The generated Task: ' + tasks);
-        Assert.areEqual(2, tasks.size(), 'Expected 1 task to be created');
+        Assert.areEqual(1, tasks.size(), 'Expected 1 task to be created');
     }
 
     @isTest

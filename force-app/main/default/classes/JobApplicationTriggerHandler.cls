@@ -1,9 +1,9 @@
 public with sharing class JobApplicationTriggerHandler {
-    
-    
+
     //create task based on status of App
     public static void createTaskFromStatus(List<Job_Application__c> newJobApps, Map<Id, Job_Application__c> oldJobAppsMap) {
-        List<Task> tasksToInsert = new List<Task>();
+
+    List<Task> tasksToInsert = new List<Task>();
 
         for (Job_Application__c jobApplication : newJobApps) {
             //check if the record is being inserted

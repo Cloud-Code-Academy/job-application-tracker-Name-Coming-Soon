@@ -49,7 +49,8 @@ public with sharing class JobApplicationHelper {
                 newTask.Description = 'Send a follow-up email thanking the interviewer and asking for feedback.\nReview your notes and reflect on areas of improvement.';
                 newTask.Priority = 'Normal';
             }
-        }    
+        }  
+        System.debug(newTask);
         return newTask;
     }
 }
