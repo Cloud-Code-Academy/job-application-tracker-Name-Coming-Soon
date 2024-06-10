@@ -4,10 +4,9 @@ trigger JobApplicationTrigger on Job_Application__c (before insert, after insert
     switch on trigger.operationType {
         when BEFORE_INSERT {
             JobApplicationTriggerHandler.createAppFollowUpDate(Trigger.new);
-            JobApplicationTriggerHandler.createTaskFromStatus(Trigger.new, null);
-        }
+            }
         when AFTER_INSERT {
-            // Do something                       
+            JobApplicationTriggerHandler.createTaskFromStatus(Trigger.new, null);                       
         }
         when BEFORE_UPDATE {
             JobApplicationTriggerHandler.createTaskFromStatus(Trigger.new, Trigger.oldMap);             
