@@ -17,3 +17,12 @@ insert job;
 interviewEmail jobReminder = new interviewEmail();
 String sch = '0 51 0 21 4 ?';
 String jobID = System.schedule('Scheduled Interview', sch, jobReminder);
+
+
+JoobleIntegration joobleIntegrationInstance = new JoobleIntegration();
+joobleIntegrationInstance.JoobleIntegration();
+
+
+List <Job__c> listOfJobs = [Select Name FROM Job__c];
+system.debug(listOfJobs);
+delete listofjobs;

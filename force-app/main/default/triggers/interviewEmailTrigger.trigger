@@ -1,4 +1,4 @@
-trigger interviewEmailTrigger on Job_Interview__c (after insert, after update) {
+trigger InterviewEmailTrigger on Job_Interview__c (after insert, after update) {
 	switch on trigger.operationType {
 		when BEFORE_INSERT {
 		}

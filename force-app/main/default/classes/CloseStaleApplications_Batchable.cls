@@ -4,6 +4,7 @@ public with sharing class CloseStaleApplications_Batchable implements Database.B
     String status = 'Closed';
                                     
     public Database.QueryLocator start(Database.BatchableContext bc) {
+        System.debug('>> start batchable');
         //query for all job applications that are not closed or accepted and Follow Up date is older than 30 days ago
         return Database.getQueryLocator([
                                         SELECT Id, Status__c 
@@ -16,7 +17,7 @@ public with sharing class CloseStaleApplications_Batchable implements Database.B
     //close all job applications in the scope and update the notes field that the application was closed by an automated process
     public void execute(Database.BatchableContext bc, List<Job_Application__c> scope) {
         List<Job_Application__c> applicationsToUpdate = new List<Job_Application__c>();
-        
+        System.debug('>>>>> Executing batchable ' + applicationsToUpdate);
         try{
             
             for(Job_Application__c app : scope){
@@ -24,7 +25,7 @@ public with sharing class CloseStaleApplications_Batchable implements Database.B
                 app.Description__c = description;
                 applicationsToUpdate.add(app);
             }
-            System.debug('applicationsToUpdate ' + applicationsToUpdate);
+            System.debug('>>>>> applicationsToUpdate ' + applicationsToUpdate);
             update applicationsToUpdate;
             
             //query for all tasks related to the job applications in the scope that are not closed, close them and add a note that the task was closed by an automated process
