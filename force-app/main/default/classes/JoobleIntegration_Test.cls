@@ -8,7 +8,7 @@ public with sharing class JoobleIntegration_Test {
     public static void testSuccessfulCallout() {
         Test.startTest();
         //this mock callout returns a dummy job and status 200 so it should be inserted
-        Test.setMock(HttpCalloutMock.class, new JoobleCallout());
+        Test.setMock(HttpCalloutMock.class, new JoobleGoodStatus());
         JoobleIntegration joobleInstance = new JoobleIntegration();
         joobleInstance.fetchJoobleJobs();
         Test.stopTest();

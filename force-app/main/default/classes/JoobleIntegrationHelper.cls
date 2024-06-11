@@ -15,7 +15,7 @@ public with sharing class JoobleIntegrationHelper {
         isHourly = range.contains('hour');
         isMonthly = range.contains('month');
         range = range.trim(); // Trim the input string
-        range = range.remove(',');//remove commas, so salary is a continuous string
+        range = range.remove(','); //remove commas, so salary is a continuous string
         Integer salary;
 
         /**
