@@ -24,6 +24,7 @@ public class JoobleIntegration {
             if (jobApps.isEmpty()) {
                 return;
             }
+            //catch any DML exception during insertion
             try{
                 insert jobApps;
             } catch(Exception e){

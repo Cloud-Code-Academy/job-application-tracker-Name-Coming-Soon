@@ -5,7 +5,7 @@
  * 
  * - A bunch of interviews with a valid time gets scheduled. 
  *   This is done by checking that our CronJob is submitted. We also check that expected number of
- *   emails have been sent with the right Subject
+ *   emails have been sent
 */
 
 @isTest

@@ -5,14 +5,14 @@
  */
 public with sharing class InterviewEmailTriggerHelper {
     /*schedule the reminder once, after that it triggers at 11:30 pm daily*/
-    public static void schedReminder(String schDayBefore) {
+    public static void schedReminder(String schd) {
         List<CronTrigger> scheduledJobs = [SELECT Id, CronJobDetail.Name, CronJobDetail.JobType, State, NextFireTime, StartTime
                                             FROM CronTrigger WHERE CronJobDetail.Name = :'InterviewReminder'];
         /*Check if this job was already shcheduled */
         if (scheduledJobs.size() == 0) {
             String schString = 'InterviewReminder';
             InterviewEmail_Schedulable jobReminder = new InterviewEmail_Schedulable();
-            System.schedule(schString, schDayBefore, jobReminder);
+            System.schedule(schString, schd, jobReminder);
         } else {
             return;
         }
@@ -39,15 +39,11 @@ public with sharing class InterviewEmailTriggerHelper {
             Time intTime = newInterview.Interview_Time__c;
 
             if (checkIntTime(newInterview) != 0) {
-                String minute = intTime.addMinutes(2).minute().toString(); 
-                String hour = intTime.hour().toString();
-                String day = (intDate.day() - 1).toString();
-
-                //Schedule Job to run everyday at 11:30 pm
+                //Try to Schedule Job to run everyday at 11:30 pm
                 schedReminder('0 30 23 * * ?');
             } else {
                 newInterview.addError('Date or time cant be null or invalid');
-            }
+            } 
         }
     }
 }

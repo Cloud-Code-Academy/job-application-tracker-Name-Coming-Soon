@@ -31,8 +31,6 @@ public with sharing class InterviewEmailSender {
                                    ' for the ' + 
                                    interview.Job_Application__r.Job__r.Title__c + ' position.' +
                                    '\n\nThank you.');
-            
-            //mail.setSaveAsActivity(false);
             toAddr.add(interview.Job_Application__r.Applicant__r.Email);
             mail.setToAddresses(toAddr);
             emailMessages.add(mail);
